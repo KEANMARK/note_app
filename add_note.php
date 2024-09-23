@@ -10,7 +10,7 @@ if(isset($_POST['add_note'])) {
     
     include_once 'database.php';
     // Insert new note into the database
-    $sql = "INSERT INTO notes (title, content, user_id) VALUES ('$note_title', '$note_content', '$user_id')";
+    $sql = "INSERT INTO notes (title, content, user_id, archive) VALUES ('$note_title', '$note_content', '$user_id', 0)";
     if ($conn->query($sql) === TRUE) {
         header("Location: index.php?addedNote=true");
 

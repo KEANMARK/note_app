@@ -17,7 +17,7 @@ if(isset($_POST['note_id'])) {
         $row = $result_select->fetch_assoc();
 
         // Insert the archived note back into the original table
-        $sql_insert = "INSERT INTO notes (title, content, user_id, archive) VALUES ('" . $row['title'] . "', '" . $row['content'] . "', '" . $row['user_id'] . ",0')";
+        $sql_insert = "INSERT INTO notes (title, content, user_id, archive) VALUES ('" . $row['title'] . "', '" . $row['content'] . "', '" . $row['user_id'] . "', 0)";
         
         if ($conn->query($sql_insert) === TRUE) {
             // Delete the archived note from the archived table

@@ -103,11 +103,13 @@ background-color: blue;
             $user = mysqli_fetch_array($result, MYSQLI_ASSOC);
             if ($user) {
                 if (password_verify($password, $user["password"])) {
-                    session_start();
                     $_SESSION["user"] = "yes";
                     $_SESSION["using"] = $user["email"];
                     $_SESSION["user_id"] = $user["user_id"];
-                    header("Location: index.php"); 
+                               echo '<script type="text/javascript">
+        window.location.href = "index.php";
+      </script>';
+
 
                     die();
                 }else{
